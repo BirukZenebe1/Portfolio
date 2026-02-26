@@ -66,20 +66,12 @@ const experiments = [
   }
 ];
 
-const skills = [
-  "Python",
-  "PyTorch",
-  "TensorFlow",
-  "Scikit-learn",
-  "MLOps",
-  "AWS Lambda",
-  "SageMaker",
-  "LLM Fine-Tuning",
-  "Kafka",
-  "Spark",
-  "SQL / PostgreSQL",
-  "Data Visualization"
-];
+const skillsByCategory = {
+  Programming: ["Python", "SQL / PostgreSQL"],
+  Data: ["Kafka", "Spark", "Data Visualization"],
+  "ML / AI": ["Scikit-learn", "PyTorch", "TensorFlow", "LLM Fine-Tuning"],
+  "Cloud / MLOps": ["AWS Lambda", "SageMaker", "MLOps"]
+};
 
 const workflow = [
   {
@@ -352,17 +344,29 @@ export default function Portfolio() {
 
         <section>
           <SectionTitle>Skills</SectionTitle>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {skills.map((skill, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {Object.entries(skillsByCategory).map(([category, items], categoryIndex) => (
               <motion.div
-                key={skill}
-                className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-center text-sm font-medium text-slate-700 dark:text-slate-200 shadow-sm"
+                key={category}
+                className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm"
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.03 }}
+                transition={{ delay: categoryIndex * 0.06 }}
               >
-                {skill}
+                <h3 className="text-sm font-semibold tracking-[0.12em] uppercase text-slate-500 dark:text-slate-400 mb-4">
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-slate-300 dark:border-slate-700 px-3 py-1 text-sm text-slate-700 dark:text-slate-200"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
