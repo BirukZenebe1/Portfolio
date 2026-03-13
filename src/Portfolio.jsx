@@ -6,10 +6,10 @@ import ThemeToggle from "./components/ui/ThemeToggle";
 
 const projects = [
   {
-    title: "Merkato AI",
+    title: "Rascart",
     description:
       "End-to-end personalized e-commerce recommendation experience with user profiling, filtering, and product flow.",
-    link: "https://merkatoai.netlify.app",
+    link: "https://rascart.com",
     image:
       "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1974&auto=format&fit=crop"
   },
