@@ -41,9 +41,9 @@ const projects = [
     title: "Credit Card Fraud Detection API",
     description:
       "A machine learning API that predicts fraudulent credit card transactions in real time. Built with XGBoost and FastAPI, containerized with Docker, and deployed on Google Cloud Run.",
-    link: "https://github.com/BirukZenebe1",
+    link: "https://github.com/BirukZenebe1/ml-model-deployment",
     image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1974&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1974&auto=format&fit=crop"
   }
 ];
 
