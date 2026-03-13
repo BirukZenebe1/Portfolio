@@ -78,7 +78,7 @@ const skillsByCategory = {
   Programming: ["Python", "SQL / PostgreSQL"],
   Data: ["Kafka", "Spark", "Data Visualization"],
   "ML / AI": ["Scikit-learn", "PyTorch", "TensorFlow", "LLM Fine-Tuning"],
-  "Cloud / MLOps": ["AWS Lambda", "SageMaker", "MLOps"]
+  "Cloud / MLOps": ["AWS Lambda", "SageMaker", "GCP", "CI/CD", "MLOps"]
 };
 
 const workflow = [
