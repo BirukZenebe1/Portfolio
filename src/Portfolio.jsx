@@ -36,6 +36,14 @@ const projects = [
     link: "https://github.com/BirukZenebe1/Automated-Random-Forest-Pipeline-Lambda-function-",
     image:
       "https://plus.unsplash.com/premium_photo-1682124651258-410b25fa9dc0?q=80&w=2821&auto=format&fit=crop"
+  },
+  {
+    title: "Credit Card Fraud Detection API",
+    description:
+      "A machine learning API that predicts fraudulent credit card transactions in real time. Built with XGBoost and FastAPI, containerized with Docker, and deployed on Google Cloud Run.",
+    link: "https://github.com/BirukZenebe1",
+    image:
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1974&auto=format&fit=crop"
   }
 ];
 
