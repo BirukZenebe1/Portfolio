@@ -77,7 +77,7 @@ const experiments = [
 const skillsByCategory = {
   Programming: ["Python", "SQL / PostgreSQL"],
   Data: ["Kafka", "Spark", "Data Visualization"],
-  "ML / AI": ["Scikit-learn", "PyTorch", "TensorFlow", "LLM Fine-Tuning"],
+  "ML / AI": ["Scikit-learn", "PyTorch", "TensorFlow", "LLM Fine-Tuning", "XGBoost", "GBM", "Random Forest"],
   "Cloud / MLOps": ["AWS", "SageMaker", "GCP", "CI/CD", "MLOps"]
 };
 
