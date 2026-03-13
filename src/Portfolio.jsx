@@ -179,7 +179,7 @@ export default function Portfolio() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Machine Learning and GenAI Engineer building production-ready AI systems, recommendation engines, and practical reinforcement learning solutions.
+            Machine Learning and GenAI Engineer building production-ready AI/ML systems.
           </motion.p>
 
           <div className="flex items-center justify-center gap-3 flex-wrap">
