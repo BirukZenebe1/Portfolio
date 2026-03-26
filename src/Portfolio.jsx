@@ -77,7 +77,7 @@ const experiments = [
 const skillsByCategory = {
   Programming: ["Python", "SQL / PostgreSQL"],
   Data: ["Kafka", "Spark", "Data Visualization"],
-  "ML / AI": ["Scikit-learn", "PyTorch", "TensorFlow", "LLM Fine-Tuning", "XGBoost", "GBM", "Random Forest"],
+  "ML / AI": ["Scikit-learn", "PyTorch", "TensorFlow", "LLM Fine-Tuning", "XGBoost", "GBM", "Random Forest", "RAG", "LangChain"],
   "Cloud / MLOps": ["AWS", "SageMaker", "GCP", "CI/CD", "MLOps"]
 };
 
@@ -148,7 +148,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
           >
             <span className="h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100 pulse-dot" />
-            Open to AI / ML / Data Engineering Roles
+            Open to AI / ML Engineering Roles
           </motion.div>
 
           <motion.h1
@@ -203,13 +203,13 @@ export default function Portfolio() {
         <section className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 py-3">
           <div className="marquee-track whitespace-nowrap text-sm md:text-base font-medium text-slate-600 dark:text-slate-300">
             <span className="mx-8">ML Engineering</span>
-            <span className="mx-8">GenAI Product Development</span>
+            <span className="mx-8">XGBoost Modeling</span>
             <span className="mx-8">Reinforcement Learning</span>
             <span className="mx-8">MLOps Automation</span>
             <span className="mx-8">Cloud Deployment</span>
-            <span className="mx-8">Prompt + Model Evaluation</span>
+            <span className="mx-8">LightGBM</span>
             <span className="mx-8">ML Engineering</span>
-            <span className="mx-8">GenAI Product Development</span>
+            <span className="mx-8">XGBoost Modeling</span>
             <span className="mx-8">Reinforcement Learning</span>
           </div>
         </section>
