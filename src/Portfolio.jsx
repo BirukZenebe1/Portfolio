@@ -22,14 +22,6 @@ const projects = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1974&auto=format&fit=crop"
   },
   {
-    title: "Medical Chatbot UI",
-    description:
-      "LLaMA 2 medical assistant interface built with Gradio and structured prompts for safer clinical-style interactions.",
-    link: "https://huggingface.co/spaces/brkznb/Medicalchatbot",
-    image:
-      "https://plus.unsplash.com/premium_photo-1732628348854-56a54f1da2ad?q=80&w=1974&auto=format&fit=crop"
-  },
-  {
     title: "Automated ML Pipeline",
     description:
       "AWS Lambda and S3-based workflow that trains and evaluates Random Forest models, then sends automated reports.",
@@ -48,6 +40,14 @@ const projects = [
 ];
 
 const experiments = [
+  {
+    title: "Medical Chatbot UI",
+    description:
+      "LLaMA 2 medical assistant interface built with Gradio and structured prompts for safer clinical-style interactions.",
+    link: "https://huggingface.co/spaces/brkznb/Medicalchatbot",
+    image:
+      "https://plus.unsplash.com/premium_photo-1732628348854-56a54f1da2ad?q=80&w=1974&auto=format&fit=crop"
+  },
   {
     title: "A3C for Kung Fu Master",
     description:
