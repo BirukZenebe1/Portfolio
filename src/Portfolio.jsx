@@ -22,7 +22,7 @@ const projects = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1974&auto=format&fit=crop"
   },
   {
-    title: "Automated ML Pipeline",
+    title: "Wine Quality Prediction",
     description:
       "AWS Lambda and S3-based workflow that trains and evaluates Random Forest models, then sends automated reports.",
     link: "https://github.com/BirukZenebe1/Automated-Random-Forest-Pipeline-Lambda-function-",
