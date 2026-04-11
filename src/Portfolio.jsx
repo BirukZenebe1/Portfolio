@@ -214,11 +214,10 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
             ["3+", "AI Projects Deployed"],
-            ["2", "Degrees in Tech"],
-            ["2024", "Focused on GenAI + RL"]
+            ["2024", "Focused on ML, GenAI"]
           ].map(([value, label], idx) => (
             <motion.div
               key={label}
