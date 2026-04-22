@@ -148,7 +148,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
           >
             <span className="h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100 pulse-dot" />
-            Open to AI / ML Engineering Roles
+            Open to AI / ML Engineering Internships
           </motion.div>
 
           <motion.h1
@@ -179,7 +179,7 @@ export default function Portfolio() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Machine Learning and GenAI Engineer building production-ready AI/ML systems.
+            Aspiring AI/ML Engineer building production-ready AI/ML systems.
           </motion.p>
 
           <div className="flex items-center justify-center gap-3 flex-wrap">
@@ -243,7 +243,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            I am a machine learning engineer focused on taking models beyond notebooks and into usable products. My recent work spans real-time fraud detection APIs with FastAPI and XGBoost, Kafka and Spark streaming pipelines, fine-tuned LLaMA 2 chatbot demos, and AI-enabled ecommerce experiences. I enjoy working across the full delivery path: model building, backend APIs, cloud deployment, and the product layer that makes ML systems actually useful.
+            I am an aspiring AI/ML engineer focused on taking models beyond notebooks and into usable products. Through hands-on community work and independent projects, I have been building real-time fraud detection APIs with FastAPI and XGBoost, Kafka and Spark streaming pipelines, fine-tuned LLaMA 2 chatbot demos, and AI-enabled ecommerce systems. I enjoy working across the full delivery path: model development, backend APIs, cloud deployment, and the product layer that makes ML systems useful in practice.
           </motion.div>
         </section>
 
