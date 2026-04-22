@@ -10,6 +10,7 @@ const projects = [
     description:
       "Real-time fraud prediction API built with XGBoost and FastAPI, containerized with Docker and deployed on Google Cloud Run with CI/CD.",
     link: "https://github.com/BirukZenebe1/ml-model-deployment",
+    stack: ["XGBoost", "FastAPI", "Docker", "Cloud Run"],
     image:
       "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1974&auto=format&fit=crop"
   },
@@ -18,6 +19,7 @@ const projects = [
     description:
       "AI-powered ecommerce platform with style profiling, personalized recommendations, filtering, and a full user shopping flow.",
     link: "https://rascart.com",
+    stack: ["Flask", "React", "Recommendations", "Product UX"],
     image:
       "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1974&auto=format&fit=crop"
   },
@@ -26,6 +28,7 @@ const projects = [
     description:
       "Streams ride events from PostgreSQL to Kafka, processes them with Spark Structured Streaming, and writes Parquet outputs for analytics.",
     link: "https://github.com/BirukZenebe1/real_time_pipeline",
+    stack: ["PostgreSQL", "Kafka", "Spark", "Parquet"],
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1974&auto=format&fit=crop"
   },
@@ -34,6 +37,7 @@ const projects = [
     description:
       "Wine quality prediction workflow using Random Forest, automated training logic, and cloud-oriented reporting for repeatable ML experiments.",
     link: "https://github.com/BirukZenebe1/Automated-Random-Forest-Pipeline-Lambda-function-",
+    stack: ["Random Forest", "AWS", "Automation", "Reporting"],
     image:
       "https://plus.unsplash.com/premium_photo-1682124651258-410b25fa9dc0?q=80&w=2821&auto=format&fit=crop"
   }
@@ -107,8 +111,8 @@ const workflow = [
 const nowBuilding = [
   {
     icon: Bot,
-    title: "Applied LLM Workflows",
-    text: "Exploring practical GenAI patterns that move from demo interfaces to useful production-facing assistants."
+    title: "Agentic Engineering",
+    text: "Using Codex-style workflows to accelerate implementation, review changes critically, and ship faster without dropping engineering standards."
   },
   {
     icon: Radar,
@@ -119,6 +123,30 @@ const nowBuilding = [
     icon: Sparkles,
     title: "Deployment-Ready ML APIs",
     text: "Shipping ML inference services with FastAPI, containers, CI/CD, and cloud deployment as first-class concerns."
+  }
+];
+
+const heroSignals = [
+  { value: "ML APIs", label: "FastAPI, deployment, CI/CD" },
+  { value: "Data Pipelines", label: "Kafka, Spark, streaming systems" },
+  { value: "Applied GenAI", label: "RAG, LangChain, fine-tuned chatbots" }
+];
+
+const githubHighlights = [
+  {
+    title: "GitHub Profile",
+    text: "Public repos focused on applied ML, streaming systems, and deployment-ready backend work.",
+    link: "https://github.com/BirukZenebe1"
+  },
+  {
+    title: "Production-Oriented Work",
+    text: "Examples include Cloud Run deployment, real-time data pipelines, ML APIs, and recommendation flows.",
+    link: "https://github.com/BirukZenebe1?tab=repositories"
+  },
+  {
+    title: "Agentic Workflow",
+    text: "I use AI-assisted engineering to move faster, but I own the design, review, testing, and final integration.",
+    link: "https://github.com/BirukZenebe1/Portfolio"
   }
 ];
 
@@ -141,63 +169,99 @@ export default function Portfolio() {
       </div>
 
       <main className="relative z-10 mx-auto max-w-6xl px-6 py-16 space-y-24">
-        <section className="text-center space-y-8">
-          <motion.div
-            className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 px-4 py-1 text-sm"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <span className="h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100 pulse-dot" />
-            Open to AI / ML Engineering Internships
-          </motion.div>
+        <section className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center">
+          <div className="space-y-8">
+            <motion.div
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 px-4 py-1 text-sm"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <span className="h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100 pulse-dot" />
+              Open to AI / ML Engineering Internships
+            </motion.div>
 
-          <motion.h1
-            className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-slate-100"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Biruk Zenebe
-          </motion.h1>
+            <motion.h1
+              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-slate-100"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Biruk Zenebe
+            </motion.h1>
+
+            <motion.p
+              className="max-w-3xl text-lg md:text-xl text-slate-700 dark:text-slate-300"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              Aspiring AI/ML engineer building production-ready systems across ML APIs, streaming data pipelines, LLM demos, and AI-enabled products.
+            </motion.p>
+
+            <motion.div
+              className="grid gap-3 sm:grid-cols-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+            >
+              {heroSignals.map((signal) => (
+                <div key={signal.value} className="hero-chip rounded-2xl p-4">
+                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">{signal.value}</p>
+                  <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">{signal.label}</p>
+                </div>
+              ))}
+            </motion.div>
+
+            <div className="flex items-center gap-3 flex-wrap">
+              <a
+                href="mailto:birukzenebe111@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-white hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white transition"
+              >
+                <Send className="h-4 w-4" /> Contact Me
+              </a>
+              <a
+                href="https://github.com/BirukZenebe1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 px-6 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+              >
+                <Github className="h-4 w-4" /> GitHub
+              </a>
+            </div>
+          </div>
 
           <motion.div
-            className="mx-auto h-40 w-40 md:h-48 md:w-48 overflow-hidden rounded-full border-4 border-white dark:border-slate-800 shadow-lg floaty"
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
+            className="showcase-panel rounded-[28px] p-6 md:p-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
           >
-            <img
-              src="https://i.postimg.cc/k4vK4q8m/IMG-8122.jpg"
-              alt="Biruk Zenebe"
-              className="h-full w-full object-cover"
-            />
+            <div className="mx-auto h-48 w-48 md:h-56 md:w-56 overflow-hidden rounded-full border-4 border-white dark:border-slate-800 shadow-lg floaty">
+              <img
+                src="https://i.postimg.cc/k4vK4q8m/IMG-8122.jpg"
+                alt="Biruk Zenebe"
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-slate-200/70 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Current focus</p>
+              <div className="mt-4 space-y-4">
+                {nowBuilding.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.title} className="flex gap-3">
+                      <Icon className="h-5 w-5 mt-1 shrink-0 text-slate-700 dark:text-slate-200" />
+                      <div>
+                        <p className="font-semibold text-slate-900 dark:text-slate-100">{item.title}</p>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">{item.text}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </motion.div>
-
-          <motion.p
-            className="mx-auto max-w-3xl text-lg md:text-xl text-slate-700 dark:text-slate-300"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Aspiring AI/ML Engineer building production-ready AI/ML systems.
-          </motion.p>
-
-          <div className="flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href="mailto:birukzenebe111@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-white hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white transition"
-            >
-              <Send className="h-4 w-4" /> Contact Me
-            </a>
-            <a
-              href="https://github.com/BirukZenebe1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 px-6 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
-            >
-              <Github className="h-4 w-4" /> GitHub
-            </a>
-          </div>
         </section>
 
         <section className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 py-3">
@@ -243,7 +307,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            I am an aspiring AI/ML engineer focused on taking models beyond notebooks and into usable products. Through hands-on community work and independent projects, I have been building real-time fraud detection APIs with FastAPI and XGBoost, Kafka and Spark streaming pipelines, fine-tuned LLaMA 2 chatbot demos, and AI-enabled ecommerce systems. I enjoy working across the full delivery path: model development, backend APIs, cloud deployment, and the product layer that makes ML systems useful in practice.
+            I am an aspiring AI/ML engineer focused on turning machine learning work into usable software systems. My recent projects cover production-style FastAPI inference APIs, Kafka and Spark streaming pipelines, LLaMA 2 chatbot demos, and AI-driven ecommerce experiences. I also use agentic engineering workflows with tools like Codex to move faster on implementation, but I treat them as engineering collaborators rather than autopilot by reviewing outputs carefully, validating behavior, and shipping with deployment and product concerns in mind.
           </motion.div>
         </section>
 
@@ -288,6 +352,16 @@ export default function Portfolio() {
                   <img src={project.image} alt={project.title} className="h-40 w-full rounded-lg object-cover" />
                   <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-100">{project.title}</h3>
                   <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 flex-grow">{project.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.stack.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-slate-300 dark:border-slate-700 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                   <a
                     href={project.link}
                     target="_blank"
@@ -331,26 +405,27 @@ export default function Portfolio() {
         </section>
 
         <section>
-          <SectionTitle>Now Building</SectionTitle>
+          <SectionTitle>GitHub Presence</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {nowBuilding.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Icon className="h-6 w-6" />
-                  <h3 className="mt-3 font-semibold text-lg">{item.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{item.text}</p>
-                </motion.div>
-              );
-            })}
+            {githubHighlights.map((item, index) => (
+              <motion.a
+                key={item.title}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm hover:-translate-y-1 transition"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+              >
+                <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{item.title}</p>
+                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{item.text}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-slate-800 dark:text-slate-200">
+                  Explore <ExternalLink className="h-4 w-4" />
+                </span>
+              </motion.a>
+            ))}
           </div>
         </section>
 
