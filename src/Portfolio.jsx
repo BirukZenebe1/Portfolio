@@ -126,12 +126,6 @@ const nowBuilding = [
   }
 ];
 
-const heroSignals = [
-  { value: "ML APIs", label: "FastAPI, deployment, CI/CD" },
-  { value: "Data Pipelines", label: "Kafka, Spark, streaming systems" },
-  { value: "Applied GenAI", label: "RAG, LangChain, fine-tuned chatbots" }
-];
-
 const otherKeyNotes = [
   {
     title: "Agentic Engineering",
@@ -198,36 +192,6 @@ export default function Portfolio() {
               Aspiring AI/ML engineer building production-ready systems across ML APIs, streaming data pipelines, LLM demos, and AI-enabled products.
             </motion.p>
 
-            <motion.div
-              className="grid gap-3 sm:grid-cols-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-            >
-              {heroSignals.map((signal) => (
-                <div key={signal.value} className="hero-chip rounded-2xl p-4">
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">{signal.value}</p>
-                  <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">{signal.label}</p>
-                </div>
-              ))}
-            </motion.div>
-
-            <div className="flex items-center gap-3 flex-wrap">
-              <a
-                href="mailto:birukzenebe111@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-white hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white transition"
-              >
-                <Send className="h-4 w-4" /> Contact Me
-              </a>
-              <a
-                href="https://github.com/BirukZenebe1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 px-6 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
-              >
-                <Github className="h-4 w-4" /> GitHub
-              </a>
-            </div>
           </div>
 
           <motion.div
