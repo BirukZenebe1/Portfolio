@@ -6,9 +6,17 @@ import ThemeToggle from "./components/ui/ThemeToggle";
 
 const projects = [
   {
+    title: "Credit Card Fraud Detection API",
+    description:
+      "Real-time fraud prediction API built with XGBoost and FastAPI, containerized with Docker and deployed on Google Cloud Run with CI/CD.",
+    link: "https://github.com/BirukZenebe1/ml-model-deployment",
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1974&auto=format&fit=crop"
+  },
+  {
     title: "Rascart",
     description:
-      "End-to-end personalized e-commerce recommendation experience with user profiling, filtering, and product flow.",
+      "AI-powered ecommerce platform with style profiling, personalized recommendations, filtering, and a full user shopping flow.",
     link: "https://rascart.com",
     image:
       "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1974&auto=format&fit=crop"
@@ -24,18 +32,10 @@ const projects = [
   {
     title: "Wine Quality Prediction",
     description:
-      "AWS Lambda and S3-based workflow that trains and evaluates Random Forest models, then sends automated reports.",
+      "Wine quality prediction workflow using Random Forest, automated training logic, and cloud-oriented reporting for repeatable ML experiments.",
     link: "https://github.com/BirukZenebe1/Automated-Random-Forest-Pipeline-Lambda-function-",
     image:
       "https://plus.unsplash.com/premium_photo-1682124651258-410b25fa9dc0?q=80&w=2821&auto=format&fit=crop"
-  },
-  {
-    title: "Credit Card Fraud Detection API",
-    description:
-      "A machine learning API that predicts fraudulent credit card transactions in real time. Built with XGBoost and FastAPI, containerized with Docker, and deployed on Google Cloud Run.",
-    link: "https://github.com/BirukZenebe1/ml-model-deployment",
-    image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1974&auto=format&fit=crop"
   }
 ];
 
@@ -43,7 +43,7 @@ const experiments = [
   {
     title: "Medical Chatbot UI",
     description:
-      "LLaMA 2 medical assistant interface built with Gradio and structured prompts for safer clinical-style interactions.",
+      "Medical Q&A demo built around a fine-tuned LLaMA 2 model, packaged with Gradio for interactive testing and lightweight auth flows.",
     link: "https://huggingface.co/spaces/brkznb/Medicalchatbot",
     image:
       "https://plus.unsplash.com/premium_photo-1732628348854-56a54f1da2ad?q=80&w=1974&auto=format&fit=crop"
@@ -107,18 +107,18 @@ const workflow = [
 const nowBuilding = [
   {
     icon: Bot,
-    title: "RAG Evaluation Sandbox",
-    text: "Comparing retrieval strategies, chunking styles, and citation reliability."
+    title: "Applied LLM Workflows",
+    text: "Exploring practical GenAI patterns that move from demo interfaces to useful production-facing assistants."
   },
   {
     icon: Radar,
-    title: "Model Drift Signals",
-    text: "Designing lightweight telemetry to catch quality degradation early."
+    title: "Streaming Data Systems",
+    text: "Working on event-driven pipelines with Kafka and Spark for low-latency ingestion and analytics."
   },
   {
     icon: Sparkles,
-    title: "Portfolio AI Agent",
-    text: "An assistant that can explain projects and link to relevant source code instantly."
+    title: "Deployment-Ready ML APIs",
+    text: "Shipping ML inference services with FastAPI, containers, CI/CD, and cloud deployment as first-class concerns."
   }
 ];
 
@@ -208,6 +208,8 @@ export default function Portfolio() {
             <span className="mx-8">MLOps Automation</span>
             <span className="mx-8">Cloud Deployment</span>
             <span className="mx-8">LightGBM</span>
+            <span className="mx-8">FastAPI Services</span>
+            <span className="mx-8">Kafka + Spark</span>
             <span className="mx-8">ML Engineering</span>
             <span className="mx-8">XGBoost Modeling</span>
             <span className="mx-8">Reinforcement Learning</span>
@@ -216,7 +218,7 @@ export default function Portfolio() {
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
-            ["3+", "AI Projects Deployed"],
+            ["5+", "Applied AI / Data Projects"],
             ["2024", "Focused on ML, GenAI"]
           ].map(([value, label], idx) => (
             <motion.div
@@ -241,7 +243,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Data science enthusiast and lifelong learner specializing in AI, machine learning, and deep reinforcement learning. I design and deploy ML systems on cloud infrastructure, experiment with modern architectures, and turn technical ideas into usable products.
+            I am a machine learning engineer focused on taking models beyond notebooks and into usable products. My recent work spans real-time fraud detection APIs with FastAPI and XGBoost, Kafka and Spark streaming pipelines, fine-tuned LLaMA 2 chatbot demos, and AI-enabled ecommerce experiences. I enjoy working across the full delivery path: model building, backend APIs, cloud deployment, and the product layer that makes ML systems actually useful.
           </motion.div>
         </section>
 
@@ -270,6 +272,9 @@ export default function Portfolio() {
 
         <section>
           <SectionTitle>Featured Projects</SectionTitle>
+          <p className="mx-auto mb-8 max-w-3xl text-center text-slate-600 dark:text-slate-300">
+            Selected projects that best represent my GitHub work across applied ML, data engineering, and production-facing AI systems.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {projects.map((project, index) => (
               <Tilt key={project.title} glareEnable scale={1.02} glareMaxOpacity={0.1}>
