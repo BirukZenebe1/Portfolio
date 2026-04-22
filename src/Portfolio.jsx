@@ -192,23 +192,12 @@ export default function Portfolio() {
               Aspiring AI/ML engineer building production-ready systems across ML APIs, streaming data pipelines, LLM demos, and AI-enabled products.
             </motion.p>
 
-          </div>
-
-          <motion.div
-            className="showcase-panel rounded-[28px] p-6 md:p-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-          >
-            <div className="mx-auto h-48 w-48 md:h-56 md:w-56 overflow-hidden rounded-full border-4 border-white dark:border-slate-800 shadow-lg floaty">
-              <img
-                src="https://i.postimg.cc/k4vK4q8m/IMG-8122.jpg"
-                alt="Biruk Zenebe"
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-slate-200/70 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 p-5">
+            <motion.div
+              className="rounded-2xl border border-slate-200/70 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 p-5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+            >
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Current focus</p>
               <div className="mt-4 space-y-4">
                 {nowBuilding.map((item) => {
@@ -224,6 +213,22 @@ export default function Portfolio() {
                   );
                 })}
               </div>
+            </motion.div>
+
+          </div>
+
+          <motion.div
+            className="showcase-panel rounded-[28px] p-6 md:p-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 }}
+          >
+            <div className="mx-auto h-48 w-48 md:h-56 md:w-56 overflow-hidden rounded-full border-4 border-white dark:border-slate-800 shadow-lg floaty">
+              <img
+                src="https://i.postimg.cc/k4vK4q8m/IMG-8122.jpg"
+                alt="Biruk Zenebe"
+                className="h-full w-full object-cover"
+              />
             </div>
           </motion.div>
         </section>
