@@ -111,18 +111,18 @@ const workflow = [
 const nowBuilding = [
   {
     icon: Bot,
-    title: "Agentic Engineering",
-    text: "Using Codex-style workflows to accelerate implementation, review changes critically, and ship faster without dropping engineering standards."
+    title: "Production-Ready GenAI Systems",
+    text: "Building LLM-powered workflows that move past demos into usable assistants, structured retrieval, and production-minded interfaces."
   },
   {
     icon: Radar,
-    title: "Streaming Data Systems",
-    text: "Working on event-driven pipelines with Kafka and Spark for low-latency ingestion and analytics."
+    title: "Deployment-Ready ML APIs",
+    text: "Shipping ML inference services with FastAPI, containers, CI/CD, and cloud deployment as part of the product itself."
   },
   {
     icon: Sparkles,
-    title: "Deployment-Ready ML APIs",
-    text: "Shipping ML inference services with FastAPI, containers, CI/CD, and cloud deployment as first-class concerns."
+    title: "RAG and Evaluation Workflows",
+    text: "Improving retrieval quality, prompt behavior, and response reliability for practical GenAI applications."
   }
 ];
 
@@ -132,21 +132,21 @@ const heroSignals = [
   { value: "Applied GenAI", label: "RAG, LangChain, fine-tuned chatbots" }
 ];
 
-const githubHighlights = [
+const otherKeyNotes = [
+  {
+    title: "Agentic Engineering",
+    text: "I use tools like Codex to accelerate implementation, but I keep ownership of system design, review, debugging, testing, and integration.",
+    link: "https://github.com/BirukZenebe1/Portfolio"
+  },
   {
     title: "GitHub Profile",
-    text: "Public repos focused on applied ML, streaming systems, and deployment-ready backend work.",
+    text: "My public repositories center on applied ML, GenAI experiments, deployment-ready APIs, and real product workflows.",
     link: "https://github.com/BirukZenebe1"
   },
   {
     title: "Production-Oriented Work",
-    text: "Examples include Cloud Run deployment, real-time data pipelines, ML APIs, and recommendation flows.",
+    text: "Examples include Cloud Run deployment, ML APIs, recommendation systems, streaming pipelines, and shipped frontend/backend integrations.",
     link: "https://github.com/BirukZenebe1?tab=repositories"
-  },
-  {
-    title: "Agentic Workflow",
-    text: "I use AI-assisted engineering to move faster, but I own the design, review, testing, and final integration.",
-    link: "https://github.com/BirukZenebe1/Portfolio"
   }
 ];
 
@@ -405,9 +405,9 @@ export default function Portfolio() {
         </section>
 
         <section>
-          <SectionTitle>GitHub Presence</SectionTitle>
+          <SectionTitle>Other Key Notes</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {githubHighlights.map((item, index) => (
+            {otherKeyNotes.map((item, index) => (
               <motion.a
                 key={item.title}
                 href={item.link}
