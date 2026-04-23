@@ -171,7 +171,7 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
             >
               <span className="h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100 pulse-dot" />
-              Open to AI / ML Engineering Internships
+              Open to AI / ML Engineering roles
             </motion.div>
 
             <motion.h1
