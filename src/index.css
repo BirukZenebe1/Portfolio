@@ -4,10 +4,22 @@
 
 :root {
   color-scheme: light;
+  --page-bg: #f4f6fb;
+  --panel: rgba(255, 255, 255, 0.72);
+  --panel-strong: rgba(255, 255, 255, 0.86);
+  --panel-border: rgba(148, 163, 184, 0.18);
+  --panel-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  --text-muted: #475569;
 }
 
 html.dark {
   color-scheme: dark;
+  --page-bg: #020617;
+  --panel: rgba(15, 23, 42, 0.58);
+  --panel-strong: rgba(15, 23, 42, 0.76);
+  --panel-border: rgba(148, 163, 184, 0.14);
+  --panel-shadow: 0 24px 80px rgba(2, 6, 23, 0.32);
+  --text-muted: #cbd5e1;
 }
 
 body {
@@ -15,8 +27,9 @@ body {
   font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
   background:
     radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(226, 232, 240, 0.85), transparent 24%),
     radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.08), transparent 32%),
-    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+    linear-gradient(180deg, #f8fafc 0%, #eef2f7 42%, #edf2f7 100%);
 }
 
 .floaty {
@@ -50,6 +63,7 @@ body {
 html.dark body {
   background:
     radial-gradient(circle at top left, rgba(148, 163, 184, 0.1), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(30, 41, 59, 0.55), transparent 24%),
     radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.08), transparent 28%),
     linear-gradient(180deg, #020617 0%, #0f172a 100%);
 }
@@ -66,6 +80,161 @@ html.dark .hero-panel {
     linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.92));
   border: 1px solid rgba(148, 163, 184, 0.16);
   box-shadow: 0 26px 80px rgba(2, 6, 23, 0.35);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  background: var(--panel-strong);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.04);
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-stage {
+  position: relative;
+}
+
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: 3rem 12% auto;
+  height: 20rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(148, 163, 184, 0.18), transparent 70%);
+  filter: blur(24px);
+  z-index: -1;
+}
+
+.hero-portrait-shell {
+  position: relative;
+  display: inline-flex;
+  padding: 1rem;
+  border-radius: 2.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.44));
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--panel-shadow);
+}
+
+.hero-portrait-ring {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.hero-focus-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.focus-card,
+.metric-panel,
+.workflow-card,
+.project-card,
+.contact-panel,
+.section-panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  backdrop-filter: blur(18px);
+}
+
+.focus-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+}
+
+.focus-icon {
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(241, 245, 249, 0.9);
+}
+
+.section-rule {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.45), transparent);
+}
+
+.metric-panel {
+  border-radius: 1.75rem;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.section-panel {
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+.workflow-card {
+  border-radius: 1.75rem;
+}
+
+.workflow-step {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  background: rgba(255, 255, 255, 0.75);
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.project-card {
+  border: 1px solid var(--panel-border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.72));
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+.project-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.18) 100%);
+}
+
+.project-tag {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.4rem 0.85rem;
+  color: #475569;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.project-link {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.contact-panel {
+  border-radius: 2rem;
+  padding: 2.5rem 1.5rem;
 }
 
 @keyframes floaty {
@@ -96,5 +265,42 @@ html.dark .hero-panel {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+html.dark .hero-portrait-shell,
+html.dark .workflow-step,
+html.dark .project-tag {
+  background: rgba(15, 23, 42, 0.72);
+}
+
+html.dark .focus-icon {
+  background: rgba(30, 41, 59, 0.92);
+}
+
+html.dark .project-card {
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(2, 6, 23, 0.78));
+  box-shadow: 0 20px 60px rgba(2, 6, 23, 0.28);
+}
+
+html.dark .project-link,
+html.dark .project-tag,
+html.dark .section-eyebrow,
+html.dark .workflow-step {
+  color: #e2e8f0;
+}
+
+@media (min-width: 768px) {
+  .hero-focus-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .section-panel {
+    padding: 2.5rem;
+  }
+
+  .contact-panel {
+    padding: 3rem 2rem;
   }
 }
