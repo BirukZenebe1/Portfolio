@@ -39,12 +39,16 @@ body {
   box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
 }
 
-.showcase-panel {
+.hero-panel {
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.7), rgba(241, 245, 249, 0.8)),
     linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(241, 245, 249, 0.82));
   border: 1px solid rgba(148, 163, 184, 0.2);
   box-shadow: 0 26px 80px rgba(15, 23, 42, 0.12);
+}
+
+.photo-panel {
+  min-height: 100%;
 }
 
 html.dark body {
@@ -60,7 +64,7 @@ html.dark .hero-chip {
   box-shadow: 0 12px 40px rgba(2, 6, 23, 0.25);
 }
 
-html.dark .showcase-panel {
+html.dark .hero-panel {
   background:
     radial-gradient(circle at top, rgba(30, 41, 59, 0.72), rgba(15, 23, 42, 0.92)),
     linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.92));

@@ -163,8 +163,13 @@ export default function Portfolio() {
       </div>
 
       <main className="relative z-10 mx-auto max-w-6xl px-6 py-16 space-y-24">
-        <section className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center">
-          <div className="space-y-8">
+        <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-stretch">
+          <motion.div
+            className="hero-panel rounded-[28px] p-7 md:p-9 space-y-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.08 }}
+          >
             <motion.div
               className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 px-4 py-1 text-sm"
               initial={{ opacity: 0, y: -10 }}
@@ -175,7 +180,7 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-slate-100"
+              className="text-5xl md:text-6xl xl:text-7xl font-black tracking-tight text-slate-900 dark:text-slate-100"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -184,7 +189,7 @@ export default function Portfolio() {
             </motion.h1>
 
             <motion.p
-              className="max-w-3xl text-lg md:text-xl text-slate-700 dark:text-slate-300"
+              className="max-w-2xl text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -193,7 +198,7 @@ export default function Portfolio() {
             </motion.p>
 
             <motion.div
-              className="rounded-2xl border border-slate-200/70 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 p-5"
+              className="rounded-2xl border border-slate-200/80 dark:border-slate-700/90 bg-white/72 dark:bg-slate-900/72 p-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25 }}
@@ -204,7 +209,9 @@ export default function Portfolio() {
                   const Icon = item.icon;
                   return (
                     <div key={item.title} className="flex gap-3">
-                      <Icon className="h-5 w-5 mt-1 shrink-0 text-slate-700 dark:text-slate-200" />
+                      <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+                        <Icon className="h-4 w-4 text-slate-700 dark:text-slate-200" />
+                      </div>
                       <div>
                         <p className="font-semibold text-slate-900 dark:text-slate-100">{item.title}</p>
                         <p className="text-sm text-slate-600 dark:text-slate-300">{item.text}</p>
@@ -214,16 +221,15 @@ export default function Portfolio() {
                 })}
               </div>
             </motion.div>
-
-          </div>
+          </motion.div>
 
           <motion.div
-            className="showcase-panel rounded-[28px] p-6 md:p-8"
+            className="hero-panel photo-panel rounded-[28px] p-7 md:p-9 flex items-center justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
           >
-            <div className="mx-auto h-48 w-48 md:h-56 md:w-56 overflow-hidden rounded-full border-4 border-white dark:border-slate-800 shadow-lg floaty">
+            <div className="mx-auto h-56 w-56 md:h-64 md:w-64 overflow-hidden rounded-full border-[6px] border-white dark:border-slate-800 shadow-lg floaty">
               <img
                 src="https://i.postimg.cc/k4vK4q8m/IMG-8122.jpg"
                 alt="Biruk Zenebe"
