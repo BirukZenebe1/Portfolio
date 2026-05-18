@@ -47,10 +47,6 @@ body {
   box-shadow: 0 26px 80px rgba(15, 23, 42, 0.12);
 }
 
-.photo-panel {
-  min-height: 100%;
-}
-
 html.dark body {
   background:
     radial-gradient(circle at top left, rgba(148, 163, 184, 0.1), transparent 30%),

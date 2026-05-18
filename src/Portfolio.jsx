@@ -163,9 +163,9 @@ export default function Portfolio() {
       </div>
 
       <main className="relative z-10 mx-auto max-w-6xl px-6 py-16 space-y-24">
-        <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-stretch">
+        <section>
           <motion.div
-            className="hero-panel rounded-[28px] p-7 md:p-9 space-y-8"
+            className="hero-panel rounded-[28px] p-7 md:p-9 space-y-7"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08 }}
@@ -179,8 +179,21 @@ export default function Portfolio() {
               Open to AI / ML Engineering roles
             </motion.div>
 
+            <motion.div
+              className="mx-auto h-40 w-40 md:h-48 md:w-48 overflow-hidden rounded-full border-[6px] border-white dark:border-slate-800 shadow-lg"
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.12, duration: 0.45 }}
+            >
+              <img
+                src="https://i.postimg.cc/k4vK4q8m/IMG-8122.jpg"
+                alt="Biruk Zenebe"
+                className="h-full w-full object-cover"
+              />
+            </motion.div>
+
             <motion.h1
-              className="text-5xl md:text-6xl xl:text-7xl font-black tracking-tight text-slate-900 dark:text-slate-100"
+              className="text-center text-5xl md:text-6xl xl:text-7xl font-black tracking-tight text-slate-900 dark:text-slate-100"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -189,7 +202,7 @@ export default function Portfolio() {
             </motion.h1>
 
             <motion.p
-              className="max-w-2xl text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300"
+              className="mx-auto max-w-3xl text-center text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -221,21 +234,6 @@ export default function Portfolio() {
                 })}
               </div>
             </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="hero-panel photo-panel rounded-[28px] p-7 md:p-9 flex items-center justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-          >
-            <div className="mx-auto h-56 w-56 md:h-64 md:w-64 overflow-hidden rounded-full border-[6px] border-white dark:border-slate-800 shadow-lg floaty">
-              <img
-                src="https://i.postimg.cc/k4vK4q8m/IMG-8122.jpg"
-                alt="Biruk Zenebe"
-                className="h-full w-full object-cover"
-              />
-            </div>
           </motion.div>
         </section>
 
