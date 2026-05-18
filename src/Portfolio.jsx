@@ -165,7 +165,7 @@ export default function Portfolio() {
       <main className="relative z-10 mx-auto max-w-6xl px-6 py-16 space-y-24">
         <section>
           <motion.div
-            className="hero-panel rounded-[28px] p-7 md:p-9 space-y-7"
+            className="mx-auto max-w-4xl space-y-7"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08 }}
@@ -211,17 +211,17 @@ export default function Portfolio() {
             </motion.p>
 
             <motion.div
-              className="rounded-2xl border border-slate-200/80 dark:border-slate-700/90 bg-white/72 dark:bg-slate-900/72 p-5"
+              className="mx-auto max-w-3xl space-y-4 border-t border-slate-200/80 pt-6 dark:border-slate-700/80"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25 }}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Current focus</p>
-              <div className="mt-4 space-y-4">
+              <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Current focus</p>
+              <div className="space-y-4">
                 {nowBuilding.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <div key={item.title} className="flex gap-3">
+                    <div key={item.title} className="flex gap-3 rounded-2xl bg-white/55 px-4 py-4 dark:bg-slate-900/45">
                       <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
                         <Icon className="h-4 w-4 text-slate-700 dark:text-slate-200" />
                       </div>
