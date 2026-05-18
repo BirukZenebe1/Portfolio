@@ -206,7 +206,7 @@ export default function Portfolio() {
                   <div className="hero-portrait-ring">
                     <img
                       src="https://i.postimg.cc/k4vK4q8m/IMG-8122.jpg"
-                      alt="Bruk amanuel"
+                      alt="Biruk Zenebe"
                       className="h-56 w-56 rounded-[2rem] object-cover md:h-72 md:w-72"
                     />
                   </div>
@@ -220,7 +220,7 @@ export default function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  Bruk amanuel
+                  Biruk Zenebe
                 </motion.h1>
 
                 <motion.p
