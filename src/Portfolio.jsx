@@ -186,7 +186,7 @@ export default function Portfolio() {
               transition={{ delay: 0.12, duration: 0.45 }}
             >
               <img
-                src="https://i.postimg.cc/k4vK4q8m/IMG-8122.jpg"
+                src="/profile.jpg"
                 alt="Biruk Zenebe"
                 className="h-full w-full object-cover"
               />
