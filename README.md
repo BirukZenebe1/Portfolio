@@ -1,6 +1,6 @@
 # Biruk Zenebe Portfolio
 
-Personal portfolio website focused on AI and Machine Learning projects, deployed on Vercel.
+A single-page, text-first personal site: what I do, where I studied, and why. Deployed on Vercel.
 
 ## Live Site
 
@@ -8,9 +8,8 @@ Personal portfolio website focused on AI and Machine Learning projects, deployed
 
 ## Highlights
 
-- Modern responsive single-page portfolio
-- Light/Dark mode toggle
-- Animated project and experiment cards
+- One short page of prose, no sections or cards
+- Follows the system light/dark preference
 - Direct links to GitHub, LinkedIn, and email
 
 ## Tech Stack
@@ -18,8 +17,6 @@ Personal portfolio website focused on AI and Machine Learning projects, deployed
 - React
 - Tailwind CSS
 - Framer Motion
-- Lucide Icons
-- React Parallax Tilt
 
 ## Run Locally
 

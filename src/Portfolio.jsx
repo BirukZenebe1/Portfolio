@@ -1,466 +1,88 @@
 import React from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
-import Tilt from "react-parallax-tilt";
-import { Send, Github, ExternalLink, Linkedin, Sparkles, Radar, Bot } from "lucide-react";
-import ThemeToggle from "./components/ui/ThemeToggle";
+import { motion } from "framer-motion";
 
-const projects = [
-  {
-    title: "Credit Card Fraud Detection API",
-    description:
-      "Real-time fraud prediction API built with XGBoost and FastAPI, containerized with Docker and deployed on Google Cloud Run with CI/CD.",
-    link: "https://github.com/BirukZenebe1/ml-model-deployment",
-    stack: ["XGBoost", "FastAPI", "Docker", "Cloud Run"],
-    image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1974&auto=format&fit=crop"
-  },
-  {
-    title: "Rascart",
-    description:
-      "AI-powered ecommerce platform with style profiling, personalized recommendations, filtering, and a full user shopping flow.",
-    link: "https://rascart.com",
-    stack: ["Flask", "React", "Recommendations", "Product UX"],
-    image:
-      "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1974&auto=format&fit=crop"
-  },
-  {
-    title: "Real-Time Ride Events Pipeline",
-    description:
-      "Streams ride events from PostgreSQL to Kafka, processes them with Spark Structured Streaming, and writes Parquet outputs for analytics.",
-    link: "https://github.com/BirukZenebe1/real_time_pipeline",
-    stack: ["PostgreSQL", "Kafka", "Spark", "Parquet"],
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1974&auto=format&fit=crop"
-  },
-  {
-    title: "Wine Quality Prediction",
-    description:
-      "Wine quality prediction workflow using Random Forest, automated training logic, and cloud-oriented reporting for repeatable ML experiments.",
-    link: "https://github.com/BirukZenebe1/Automated-Random-Forest-Pipeline-Lambda-function-",
-    stack: ["Random Forest", "AWS", "Automation", "Reporting"],
-    image:
-      "https://plus.unsplash.com/premium_photo-1682124651258-410b25fa9dc0?q=80&w=2821&auto=format&fit=crop"
-  }
-];
-
-const experiments = [
-  {
-    title: "Medical Chatbot UI",
-    description:
-      "Medical Q&A demo built around a fine-tuned LLaMA 2 model, packaged with Gradio for interactive testing and lightweight auth flows.",
-    link: "https://huggingface.co/spaces/brkznb/Medicalchatbot",
-    image:
-      "https://plus.unsplash.com/premium_photo-1732628348854-56a54f1da2ad?q=80&w=1974&auto=format&fit=crop"
-  },
-  {
-    title: "A3C for Kung Fu Master",
-    description:
-      "Asynchronous Advantage Actor-Critic training setup for Atari gameplay with parallel environment sampling.",
-    link: "https://github.com/BirukZenebe1/A3C",
-    image:
-      "https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=1974&auto=format&fit=crop"
-  },
-  {
-    title: "DQN for Pac-Man",
-    description:
-      "Deep Q-Learning agent with CNN state encoder for policy learning from visual observations.",
-    link: "https://github.com/BirukZenebe1/Q-learning-PAC-MAN",
-    image:
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop"
-  },
-  {
-    title: "PPO for CarRacing-v3",
-    description:
-      "Continuous-control PPO implementation using actor-critic networks and stable training loops.",
-    link: "https://github.com/BirukZenebe1/PPO",
-    image:
-      "https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=1974&auto=format&fit=crop"
-  }
-];
-
-const skillsByCategory = {
-  Programming: ["Python", "SQL / PostgreSQL"],
-  Data: ["Kafka", "Spark", "Data Visualization"],
-  "ML / AI": ["Scikit-learn", "PyTorch", "TensorFlow", "LLM Fine-Tuning", "XGBoost", "GBM", "Random Forest", "RAG", "LangChain"],
-  "Cloud / MLOps": ["AWS", "SageMaker", "GCP", "CI/CD", "MLOps"]
+const fadeUp = {
+  hidden: { opacity: 0, y: 8 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
 };
 
-const workflow = [
-  {
-    step: "01",
-    title: "Scope & KPI Mapping",
-    text: "Turn product goals into measurable ML metrics with clear constraints and success criteria."
-  },
-  {
-    step: "02",
-    title: "Baseline to Iteration",
-    text: "Ship a baseline fast, validate with experiments, then improve with targeted model and data changes."
-  },
-  {
-    step: "03",
-    title: "Production Hardening",
-    text: "Package pipelines, automate delivery, and monitor drift, latency, and quality in production."
-  },
-  {
-    step: "04",
-    title: "Business Feedback Loop",
-    text: "Use usage signals and stakeholder feedback to prioritize the next model and UX improvements."
-  }
-];
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } }
+};
 
-const nowBuilding = [
-  {
-    icon: Bot,
-    title: "Production-Ready GenAI Systems",
-    text: "Building LLM-powered workflows that move past demos into usable assistants, structured retrieval, and production-minded interfaces."
-  },
-  {
-    icon: Radar,
-    title: "Deployment-Ready ML APIs",
-    text: "Shipping ML inference services with FastAPI, containers, CI/CD, and cloud deployment as part of the product itself."
-  },
-  {
-    icon: Sparkles,
-    title: "RAG and Evaluation Workflows",
-    text: "Improving retrieval quality, prompt behavior, and response reliability for practical GenAI applications."
-  }
-];
+function Link({ href, children }) {
+  const external = href.startsWith("http");
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className="text-stone-900 underline decoration-stone-300 underline-offset-[5px] transition-colors hover:decoration-stone-900 dark:text-stone-100 dark:decoration-stone-600 dark:hover:decoration-stone-100"
+    >
+      {children}
+    </a>
+  );
+}
 
-const otherKeyNotes = [
-  {
-    title: "Agentic Engineering",
-    text: "I use tools like Codex to accelerate implementation, but I keep ownership of system design, review, debugging, testing, and integration.",
-    link: "https://github.com/BirukZenebe1/Portfolio"
-  },
-  {
-    title: "GitHub Profile",
-    text: "My public repositories center on applied ML, GenAI experiments, deployment-ready APIs, and real product workflows.",
-    link: "https://github.com/BirukZenebe1"
-  },
-  {
-    title: "Production-Oriented Work",
-    text: "Examples include Cloud Run deployment, ML APIs, recommendation systems, streaming pipelines, and shipped frontend/backend integrations.",
-    link: "https://github.com/BirukZenebe1?tab=repositories"
-  }
-];
-
-function SectionTitle({ children }) {
-  return <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-900 dark:text-slate-100">{children}</h2>;
+function Rule() {
+  return <motion.hr variants={fadeUp} className="border-0 border-t border-stone-200 dark:border-stone-800" />;
 }
 
 export default function Portfolio() {
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 25, mass: 0.2 });
-
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-500">
-      <motion.div style={{ scaleX: progress }} className="fixed left-0 right-0 top-0 z-50 h-1 origin-left bg-slate-900 dark:bg-slate-100" />
-      <ThemeToggle />
+    <div className="relative min-h-screen bg-stone-50 text-stone-700 antialiased dark:bg-stone-950 dark:text-stone-300">
+      <motion.img
+        src="/profile.jpg"
+        alt="Biruk Zenebe"
+        className="absolute right-6 top-6 h-12 w-12 rounded-full object-cover ring-1 ring-stone-200 md:right-10 md:top-10 md:h-14 md:w-14 dark:ring-stone-800"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+      />
 
-      <div className="pointer-events-none fixed inset-0 -z-0">
-        <div className="absolute -top-28 left-0 h-72 w-72 rounded-full bg-slate-300/30 dark:bg-slate-700/30 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-gray-300/30 dark:bg-gray-700/30 blur-3xl" />
-      </div>
+      <motion.main
+        className="mx-auto flex min-h-screen w-full max-w-2xl flex-col justify-center px-6 py-24 md:py-32"
+        variants={stagger}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.header variants={fadeUp} className="mb-12">
+          <h1 className="text-xl font-medium tracking-tight text-stone-900 dark:text-stone-100">Biruk Zenebe</h1>
+          <p className="mt-1 text-sm text-stone-500">AI / ML engineer</p>
+        </motion.header>
 
-      <main className="relative z-10 mx-auto max-w-6xl px-6 py-16 space-y-24">
-        <section>
-          <motion.div
-            className="mx-auto max-w-4xl space-y-7"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 px-4 py-1 text-sm"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <span className="h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100 pulse-dot" />
-              Open to AI / ML Engineering roles
-            </motion.div>
+        <div className="space-y-8 text-[17px] leading-8 md:text-lg md:leading-9">
+          <motion.p variants={fadeUp}>
+            I build machine learning systems that actually ship. Fraud-detection APIs on Cloud Run, streaming pipelines
+            with Kafka and Spark, recommendation engines, and LLM products like{" "}
+            <Link href="https://rascart.com">Rascart</Link>. The part of ML that turns a model into software people use.
+          </motion.p>
 
-            <motion.div
-              className="mx-auto h-40 w-40 md:h-48 md:w-48 overflow-hidden rounded-full border-[6px] border-white dark:border-slate-800 shadow-lg"
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.12, duration: 0.45 }}
-            >
-              <img
-                src="/profile.jpg"
-                alt="Biruk Zenebe"
-                className="h-full w-full object-cover"
-              />
-            </motion.div>
+          <Rule />
 
-            <motion.h1
-              className="text-center text-5xl md:text-6xl xl:text-7xl font-black tracking-tight text-slate-900 dark:text-slate-100"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Biruk Zenebe
-            </motion.h1>
+          <motion.p variants={fadeUp}>
+            I studied Computer Science at the University of Vizja in Warsaw, where my thesis was on fine-tuning LLaMA 2
+            for a medical chatbot. Before that, I began a degree in Information Technology at Mekelle Institute of
+            Technology in Ethiopia.
+          </motion.p>
 
-            <motion.p
-              className="mx-auto max-w-3xl text-center text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              AI/ML engineer building production-ready systems across ML APIs, streaming data pipelines, LLM demos, and AI-enabled products.
-            </motion.p>
+          <Rule />
 
-            <motion.div
-              className="mx-auto max-w-3xl space-y-4 border-t border-slate-200/80 pt-6 dark:border-slate-700/80"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-            >
-              <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Current focus</p>
-              <div className="space-y-4">
-                {nowBuilding.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={item.title} className="flex gap-3 rounded-2xl bg-white/55 px-4 py-4 dark:bg-slate-900/45">
-                      <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
-                        <Icon className="h-4 w-4 text-slate-700 dark:text-slate-200" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-slate-900 dark:text-slate-100">{item.title}</p>
-                        <p className="text-sm text-slate-600 dark:text-slate-300">{item.text}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </motion.div>
-        </section>
+          <motion.p variants={fadeUp}>
+            My purpose is to close the gap between research and product. Fewer demos, more systems that run in
+            production, get measured, and make someone's day a little easier.
+          </motion.p>
+        </div>
 
-        <section className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 py-3">
-          <div className="marquee-track whitespace-nowrap text-sm md:text-base font-medium text-slate-600 dark:text-slate-300">
-            <span className="mx-8">ML Engineering</span>
-            <span className="mx-8">XGBoost Modeling</span>
-            <span className="mx-8">Reinforcement Learning</span>
-            <span className="mx-8">MLOps Automation</span>
-            <span className="mx-8">Cloud Deployment</span>
-            <span className="mx-8">LightGBM</span>
-            <span className="mx-8">FastAPI Services</span>
-            <span className="mx-8">Kafka + Spark</span>
-            <span className="mx-8">ML Engineering</span>
-            <span className="mx-8">XGBoost Modeling</span>
-            <span className="mx-8">Reinforcement Learning</span>
-          </div>
-        </section>
-
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[
-            ["5+", "Applied AI / Data Projects"],
-            ["2024", "Focused on ML, GenAI"]
-          ].map(([value, label], idx) => (
-            <motion.div
-              key={label}
-              className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 p-6 text-center shadow-sm"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
-            >
-              <p className="text-3xl font-black text-slate-900 dark:text-slate-100">{value}</p>
-              <p className="mt-2 text-slate-600 dark:text-slate-300">{label}</p>
-            </motion.div>
-          ))}
-        </section>
-
-        <section>
-          <SectionTitle>About Me</SectionTitle>
-          <motion.div
-            className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 p-8 leading-8 text-slate-700 dark:text-slate-300 shadow-sm"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            I am an aspiring AI/ML engineer focused on turning machine learning work into usable software systems. My recent projects cover production-style FastAPI inference APIs, Kafka and Spark streaming pipelines, LLaMA 2 chatbot demos, and AI-driven ecommerce experiences. I also use agentic engineering workflows with tools like Codex to move faster on implementation, but I treat them as engineering collaborators rather than autopilot by reviewing outputs carefully, validating behavior, and shipping with deployment and product concerns in mind.
-          </motion.div>
-        </section>
-
-        <section>
-          <SectionTitle>How I Build AI Products</SectionTitle>
-          <p className="mx-auto mb-8 max-w-3xl text-center text-slate-600 dark:text-slate-300">
-            A practical delivery flow I use to ship ML systems from idea to production.
-          </p>
-          <div className="grid gap-6 md:grid-cols-2">
-            {workflow.map((item, index) => (
-              <motion.div
-                key={item.title}
-                className="relative rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <span className="text-xs font-semibold tracking-[0.18em] text-slate-500">STEP {item.step}</span>
-                <h3 className="mt-3 text-xl font-semibold">{item.title}</h3>
-                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{item.text}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        <section>
-          <SectionTitle>Featured Projects</SectionTitle>
-          <p className="mx-auto mb-8 max-w-3xl text-center text-slate-600 dark:text-slate-300">
-            Selected projects that best represent my GitHub work across applied ML, data engineering, and production-facing AI systems.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {projects.map((project, index) => (
-              <Tilt key={project.title} glareEnable scale={1.02} glareMaxOpacity={0.1}>
-                <motion.article
-                  className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm hover:shadow-md transition h-full flex flex-col"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                >
-                  <img src={project.image} alt={project.title} className="h-40 w-full rounded-lg object-cover" />
-                  <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-100">{project.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 flex-grow">{project.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.stack.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-slate-300 dark:border-slate-700 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 text-slate-800 dark:text-slate-200 font-medium hover:underline"
-                  >
-                    View Project <ExternalLink className="h-4 w-4" />
-                  </a>
-                </motion.article>
-              </Tilt>
-            ))}
-          </div>
-        </section>
-
-        <section>
-          <SectionTitle>Experiments</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {experiments.map((experiment, index) => (
-              <motion.article
-                key={experiment.title}
-                className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-              >
-                <img src={experiment.image} alt={experiment.title} className="h-40 w-full rounded-lg object-cover" />
-                <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-100">{experiment.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{experiment.description}</p>
-                <a
-                  href={experiment.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-slate-800 dark:text-slate-200 font-medium hover:underline"
-                >
-                  Explore Repo <ExternalLink className="h-4 w-4" />
-                </a>
-              </motion.article>
-            ))}
-          </div>
-        </section>
-
-        <section>
-          <SectionTitle>Other Key Notes</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {otherKeyNotes.map((item, index) => (
-              <motion.a
-                key={item.title}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm hover:-translate-y-1 transition"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-              >
-                <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{item.title}</p>
-                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{item.text}</p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-slate-800 dark:text-slate-200">
-                  Explore <ExternalLink className="h-4 w-4" />
-                </span>
-              </motion.a>
-            ))}
-          </div>
-        </section>
-
-        <section>
-          <SectionTitle>Skills</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {Object.entries(skillsByCategory).map(([category, items], categoryIndex) => (
-              <motion.div
-                key={category}
-                className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm"
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: categoryIndex * 0.06 }}
-              >
-                <h3 className="text-sm font-semibold tracking-[0.12em] uppercase text-slate-500 dark:text-slate-400 mb-4">
-                  {category}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {items.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-slate-300 dark:border-slate-700 px-3 py-1 text-sm text-slate-700 dark:text-slate-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        <section id="contact" className="text-center space-y-4">
-          <SectionTitle>Get In Touch</SectionTitle>
-          <p className="text-slate-700 dark:text-slate-300">birukzenebe111@gmail.com</p>
-          <div className="flex justify-center gap-3 flex-wrap">
-            <a
-              href="mailto:birukzenebe111@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-slate-900 dark:bg-slate-100 px-6 py-3 text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-white transition"
-            >
-              <Send className="h-4 w-4" /> Email
-            </a>
-            <a
-              href="https://www.linkedin.com/in/biruk-zenebe-916529246/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 px-6 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
-            >
-              <Linkedin className="h-4 w-4" /> LinkedIn
-            </a>
-            <a
-              href="https://github.com/BirukZenebe1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 px-6 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
-            >
-              <Github className="h-4 w-4" /> GitHub
-            </a>
-          </div>
-        </section>
-      </main>
+        <motion.footer variants={fadeUp} className="mt-16 text-sm text-stone-500">
+          <Link href="mailto:birukzenebe111@gmail.com">birukzenebe111@gmail.com</Link>
+          <span className="mx-2.5 text-stone-300 dark:text-stone-700">·</span>
+          <Link href="https://github.com/BirukZenebe1">GitHub</Link>
+          <span className="mx-2.5 text-stone-300 dark:text-stone-700">·</span>
+          <Link href="https://www.linkedin.com/in/biruk-zenebe-916529246/">LinkedIn</Link>
+        </motion.footer>
+      </motion.main>
     </div>
   );
 }
