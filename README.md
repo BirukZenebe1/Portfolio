@@ -14,9 +14,8 @@ A single-page, text-first personal site: what I do, where I studied, and why. De
 
 ## Tech Stack
 
-- React
-- Tailwind CSS
-- Framer Motion
+- React (Create React App)
+- A single hand-written stylesheet, no CSS framework
 
 ## Run Locally
 
