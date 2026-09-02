@@ -11,9 +11,9 @@ export default function Portfolio() {
       <p>
         I'm a machine learning engineer, and most of my work is the unglamorous part of ML: getting a model out of a
         notebook and into something that runs. I've built a fraud-detection API with XGBoost and FastAPI on Cloud Run,
-        a Kafka and Spark pipeline for streaming ride events, and the recommendation system behind{" "}
-        <a href="https://rascart.com">Rascart</a>, an ecommerce app I wrote with Flask and React. Lately most of my
-        time goes to LLM systems: retrieval, evaluation, and fine-tuning.
+        a Kafka and Spark pipeline for streaming ride events, and the recommendation system behind Rascart, an
+        ecommerce app I wrote with Flask and React. Lately most of my time goes to LLM systems: retrieval,
+        evaluation, and fine-tuning.
       </p>
 
       <hr />
@@ -21,7 +21,7 @@ export default function Portfolio() {
       <p>
         I studied Computer Science at the University of Vizja in Warsaw, where my thesis was on fine-tuning LLaMA 2
         for a medical question-answering chatbot. Before that I started in Information Technology at Mekelle Institute
-        of Technology in Ethiopia.
+        of Technology in Ethiopia. I'm now in a master's program.
       </p>
 
       <hr />
