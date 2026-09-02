@@ -27,9 +27,10 @@ export default function Portfolio() {
       <hr />
 
       <p>
-        The reason I do this is simple. Most machine learning never reaches a user. I want to be the person who
-        carries it the last mile, into an API, a pipeline, a product, and then sticks around to find out whether it
-        worked.
+        The reason I do this is simple. I like the whole arc of a machine learning problem: working out what is
+        actually worth predicting, learning what the data can and can't tell you, building a model that holds up
+        outside the training set, and then putting it in front of real people. A good score on a benchmark isn't the
+        point. A model that changes a decision is.
       </p>
 
       <footer>
