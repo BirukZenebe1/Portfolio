@@ -21,7 +21,7 @@ export default function Portfolio() {
       <p>
         I studied Computer Science at the University of Vizja in Warsaw, where my thesis was on fine-tuning LLaMA 2
         for a medical question-answering chatbot. Before that I started in Information Technology at Mekelle Institute
-        of Technology in Ethiopia. I'm now in a master's program.
+        of Technology in Ethiopia. I'm now in a master's program studying Data Science in University of Warsaw.
       </p>
 
       <hr />
