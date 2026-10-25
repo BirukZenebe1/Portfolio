@@ -4,7 +4,7 @@ A single-page, text-first personal site: what I do, where I studied, and why. De
 
 ## Live Site
 
-[birukzenebe.vercel.app](https://birukzenebe.vercel.app)
+[birukzenebe.me](https://birukzenebe.me)
 
 ## Highlights
 
