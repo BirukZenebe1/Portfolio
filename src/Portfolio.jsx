@@ -25,7 +25,6 @@ export default function Portfolio() {
       <section>
         <h2>Selected work</h2>
         <ul>
-          <li><strong>Rascart</strong> — personalized e-commerce recommendations, user profiling, and product filtering.</li>
           <li><strong>Real-Time Ride Events Pipeline</strong> — PostgreSQL, Kafka, Spark Structured Streaming, and Parquet analytics outputs.</li>
           <li><strong>Fraud Detection API</strong> — real-time XGBoost predictions with FastAPI, Docker, and Google Cloud Run.</li>
         </ul>
